@@ -1,4 +1,4 @@
-
+import datetime
 
 
 class Base():
@@ -20,3 +20,19 @@ class Base():
         value_word = word.text
         assert value_word == result
         print("Good value_word")
+
+
+    # Method screenshot
+
+    def screenshot(self):
+        now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
+        name_screenshot = 'screenshot_' + now_date + '.png'
+        self.driver.save_screenshot('/Users/iratewarrior/PycharmProjects/ProjectOne/screen/' + name_screenshot)
+
+
+    # Method assert url
+
+    def assert_url(self, result):
+        get_url = self.driver.current_url
+        assert get_url == result
+        print("Good value url")
